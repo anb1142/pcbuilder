@@ -10,7 +10,7 @@
 .rainbowBG {
 	background: $gradient;
 	background-size: 500%;
-	// animation: rainbowH1 2s infinite alternate ease-in-out;
+	animation: rainbowH1 2s infinite alternate ease-in-out;
 	animation-timing-function: cubic-bezier(0.54, 0.28, 0.43, 0.74);
 	background-clip: text;
 	color: transparent;
