@@ -1,0 +1,9 @@
+@import "@styles/_vars.scss";
+
+.loading {
+	background: #fff;
+	width: 100%;
+	height: $pageH;
+	mask: url("/fan.svg") center/35% 35% no-repeat;
+	margin-top: calc($marB * -2);
+}

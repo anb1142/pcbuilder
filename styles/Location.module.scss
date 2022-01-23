@@ -1,0 +1,23 @@
+@import "@styles/_vars";
+.location {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 5vh 0;
+	> iframe {
+		height: 100%;
+		width: 92%;
+		border-radius: 1vh;
+		filter: grayscale(100%) invert(92%) contrast(83%);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.location {
+		padding-bottom: calc($navhm + 10vw);
+		> iframe {
+			width: 92%;
+		}
+	}
+}

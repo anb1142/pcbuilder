@@ -1,0 +1,25 @@
+$navh: 6.7vh;
+$navhm: 12vw;
+$neon: hsl(120, 100%, 50%);
+$neonbg: hsl(120, 20%, 10%);
+$border-color: #666;
+$darkbg: #242628;
+$inputbg: #101010;
+$gradient: linear-gradient(
+	90deg,
+	hsl(0, 100%, 50%),
+	hsl(36, 100%, 50%),
+	hsl(60, 100%, 50%),
+	hsl(120, 100%, 50%),
+	hsl(150, 100%, 50%),
+	hsl(180, 100%, 50%),
+	hsl(210, 100%, 50%),
+	hsl(240, 100%, 60%),
+	hsl(280, 100%, 50%),
+	hsl(300, 100%, 50%)
+);
+
+$h1H: 15vh;
+$marB: 4vh;
+$marBm: 8vw;
+$pageH: calc(100vh - $h1H - $marB - $navh);

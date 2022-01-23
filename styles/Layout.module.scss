@@ -1,0 +1,11 @@
+@import "@styles/_vars.scss";
+
+.layout {
+	padding-top: $navh;
+}
+
+@media screen and (max-width: 768px) {
+	.layout {
+		padding-top: 0;
+	}
+}

@@ -1,0 +1,102 @@
+.faqlist > article {
+	width: 86vh;
+	max-width: 92vw;
+	background: #242424;
+	border-bottom: 0.3vh solid #333;
+	border-radius: 2vh;
+	padding: 4vh 5vh;
+	margin: 0 auto 2vh;
+	color: #fff;
+	position: relative;
+	> button {
+		$size: 3vh;
+		$margin: 1.5vh;
+
+		height: $size;
+		width: $size;
+		right: $margin;
+		top: $margin;
+		position: absolute;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+
+		cursor: pointer;
+		background: #fff;
+		border-radius: 50%;
+		transition: 0.2s transform ease-out, 0.2s box-shadow, 0.3s background;
+
+		> svg {
+			$size: 2vh;
+			height: $size;
+			width: $size;
+			transition: 0.4s color;
+		}
+
+		&:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 1vh #ff2424aa;
+			background: #ff2424;
+
+			> svg {
+				color: #fff;
+			}
+		}
+		&:active {
+			transform: scale(1);
+		}
+	}
+	> h3,
+	> p {
+		cursor: default;
+	}
+
+	> h3 {
+		font-family: "Orbitron";
+		font-size: 2.5vh;
+	}
+
+	> p {
+		margin-top: 2vh;
+		line-height: 1.6;
+		font-size: 1.7vh;
+		padding: 0 2vh;
+		text-align: justify;
+		white-space: pre-wrap;
+		font-family: "oxygen";
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.faqlist > article {
+		width: 90vw;
+		border-width: 0.7vw;
+		border-radius: 4vw;
+		padding: 9vw 7vw;
+		margin: 0 auto 6vw;
+		> button {
+			$size: 6vw;
+			$margin: 3vw;
+			height: $size;
+			width: $size;
+			right: $margin;
+			top: $margin;
+			> svg {
+				$size: 4.2vw;
+				height: $size;
+				width: $size;
+			}
+		}
+
+		> h3 {
+			font-size: 5vw;
+		}
+
+		> p {
+			margin-top: 4vw;
+			font-size: 3.4vw;
+			padding: 0 3vw;
+		}
+	}
+}

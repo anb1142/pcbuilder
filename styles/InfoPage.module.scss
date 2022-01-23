@@ -1,0 +1,46 @@
+@import "@styles/_vars.scss";
+
+.infopage {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+
+	> h1 {
+		width: 100vh;
+		max-width: 90vw;
+		height: $h1H;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		text-align: center;
+		margin-bottom: $marB;
+		font-size: 4vh;
+		font-family: "Orbitron";
+		color: #fff;
+		position: relative;
+		cursor: default;
+		&::after {
+			position: absolute;
+			content: "";
+			top: 98%;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: $border-color;
+			border-radius: 50%;
+		}
+	}
+	> section {
+		min-height: $pageH;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.infopage {
+		padding-bottom: $navhm;
+		> h1 {
+			margin-bottom: $marBm;
+		}
+	}
+}

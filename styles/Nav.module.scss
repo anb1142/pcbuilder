@@ -1,0 +1,118 @@
+@import "@styles/classes/neon.scss";
+@import "@styles/classes/logo.scss";
+@import "@styles/_vars.scss";
+
+.nav {
+	@extend .neon;
+	border-left: 0;
+	border-right: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: $navh;
+	padding: 0 4vh;
+	position: fixed;
+	z-index: 100;
+	font-family: "Oxygen";
+	transition: transform 0.3s, box-shadow 0.3s ease-out;
+
+	.active {
+		color: $neon;
+		border-color: currentColor;
+		pointer-events: none;
+	}
+	> a {
+		font-size: 0;
+		background: $neon;
+		height: 4.5vh;
+		width: 9vh;
+		@extend .logo;
+		color: $neon;
+		border-color: currentColor;
+	}
+
+	> ul {
+		display: flex;
+
+		> a {
+			text-decoration: none;
+			color: #fff;
+			border-bottom: 0.3vh solid transparent;
+			border-radius: 0.2vh;
+			font-size: 1.7vh;
+			padding: 0.3vh 0;
+			margin-right: 3vh;
+			transition: 150ms color, 0.2s border-color;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+			&:hover,
+			&:focus {
+				color: $neon;
+			}
+		}
+	}
+}
+.hide {
+	transform: translateY(-6.7vh);
+	box-shadow: none;
+}
+@media (min-aspect-ratio: 21/9) {
+	.nav {
+		justify-content: space-around;
+	}
+}
+@media screen and (max-width: 768px) {
+	.nav {
+		height: 0;
+		border: 0;
+
+		> a {
+			display: none;
+		}
+
+		> ul {
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: $navhm;
+
+			z-index: 1;
+			position: fixed;
+			align-items: center;
+			justify-content: space-evenly;
+
+			&::before {
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 12vw !important;
+
+				width: 100%;
+				position: fixed;
+				content: "";
+				background: $neonbg;
+				z-index: -1;
+				transition: 0.2s opacity;
+				opacity: 0;
+			}
+			> a {
+				border-bottom: 0.5vw solid transparent;
+				border-radius: 0.6vw;
+				font-size: 3.5vw;
+				padding: 0.5vw 0;
+				margin: 0;
+			}
+		}
+	}
+	.scrolled > ul::before {
+		opacity: 1;
+	}
+
+	.hide {
+		transform: none;
+		box-shadow: auto;
+	}
+}

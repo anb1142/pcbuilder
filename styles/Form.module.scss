@@ -1,0 +1,27 @@
+@import "@styles/classes/input.scss";
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: hsl(210, 5%, 15%);
+	width: 43vh;
+	max-width: 92vw;
+	padding: 5vh 4vh 3vh;
+	border-radius: 1vh;
+	color: #fff;
+	input,
+	textarea {
+		@extend .input;
+		margin-bottom: 2vh;
+		width: 100%;
+		color: inherit;
+	}
+	textarea {
+		resize: none;
+		height: 12vh;
+	}
+	button {
+		@extend .submit;
+	}
+}

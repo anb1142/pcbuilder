@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400;600&family=Oxygen:wght@400;700&display=swap");
+@import url("/fonts.css");
+@import "@styles/_vars";
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: 0;
+	border: 0;
+}
+
+main {
+	background: radial-gradient(#000000e0, #000);
+	overflow-x: hidden;
+}
+
+section {
+	overflow-y: hidden;
+}
+
+.center {
+	width: 100vw;
+	height: 20vh;
+	margin-top: -$marB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+	.center {
+		margin-top: -$marBm;
+	}
+}

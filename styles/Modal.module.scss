@@ -1,0 +1,146 @@
+@import "./_vars.scss";
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	transition: 0.1s background ease-out;
+	background: #00000069;
+	animation: overlayshow 0.6s;
+	&.close {
+		animation: overlayhide 0.2s;
+	}
+}
+@keyframes overlayshow {
+	0% {
+		background: #00000000;
+	}
+	100% {
+		background: #00000069;
+	}
+}
+
+@keyframes overlayhide {
+	0% {
+		background: #00000069;
+	}
+	100% {
+		background: #00000000;
+	}
+}
+.modal {
+	position: relative;
+	animation: modalshow 0.6s;
+	max-width: 95vw;
+	&.close {
+		animation: modalhide 0.2s;
+	}
+	> button {
+		background: red;
+		$size: 3vh;
+		position: absolute;
+		right: 0.5vh;
+		top: 0.5vh;
+		font-size: 3vh;
+		height: $size;
+		width: $size;
+		border: 0;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		color: #fff;
+		background: #ffffff00;
+		transition: 0.3s border-radius, 0.2s background, 0.2s color;
+		border-radius: 10%;
+
+		&:hover {
+			color: #000;
+			background: #fff;
+			opacity: 1;
+			border-radius: 50%;
+		}
+	}
+}
+
+@keyframes modalshow {
+	0% {
+		transform: translateY(-100vh) scale(0.5);
+	}
+	50% {
+		transform: translateY(5vh) scale(1);
+	}
+
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes modalhide {
+	0% {
+		transform: none;
+	}
+
+	100% {
+		transform: translateY(100vh);
+		background: #00000000;
+	}
+}
+
+.faqRemove {
+	font-family: "oxygen";
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	background: $darkbg;
+	width: 70vh;
+	padding: 6vh 4vh 3vh;
+	border-radius: 1vh;
+	color: #fff;
+	> p {
+		font-size: 3vh;
+		cursor: default;
+	}
+	> article {
+		margin-top: 2.5vh;
+		align-self: flex-end;
+		> button {
+			font-family: "oxygen";
+			font-weight: bold;
+			border-radius: 1vh;
+			padding: 1vh;
+			width: 10vh;
+			font-size: 2vh;
+			background: #fff;
+			transition: 0.2s transform, 0.2s background, 0.2s color;
+			cursor: pointer;
+			&:first-of-type {
+				margin-right: 2vh;
+			}
+			&:hover {
+				transform: scale(1.1);
+			}
+			&:active {
+				transform: none;
+			}
+		}
+		.g {
+			color: green;
+			&:hover {
+				color: #fff;
+				background: limegreen;
+			}
+		}
+		.r {
+			color: red;
+			&:hover {
+				color: #fff;
+				background: #ff2424;
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+@import "@styles/_vars.scss";
+
+$color: #bbb;
+$border-color-light: #888;
+$border-color-dark: #666;
+.input {
+	border-radius: 1vh;
+	border-bottom: 0.3vh solid $border-color-dark;
+	padding: 1.5vh 2vh;
+	background: $inputbg;
+	font-size: 1.6vh;
+	transition: 0.2s border-color ease-out;
+	font-family: "Oxygen";
+	&:focus {
+		border-color: $border-color-light;
+	}
+	&::placeholder {
+		color: $color;
+	}
+}
+
+.submit {
+	@extend .input;
+	color: inherit;
+	padding: 1vh 2vh;
+	color: $color;
+	transition: 0.2s transform, 0.2s color, 0.2s border-color;
+	cursor: pointer;
+	&:hover {
+		transform: scale(1.1);
+		border-color: $border-color-light;
+	}
+	&:active {
+		color: #fff;
+		transform: scale(1);
+	}
+}

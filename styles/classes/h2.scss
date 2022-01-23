@@ -1,0 +1,20 @@
+.h2 {
+	border-left: 0;
+	border-right: 0;
+	font-family: "Orbitron";
+	font-size: 4vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 14vh;
+	cursor: default;
+}
+
+@media screen and (max-width: 768px),
+	screen and (width: 1024px) and (max-height: 1366px),
+	screen and (width: 810px) and (max-height: 1080px) {
+	.h2 {
+		font-size: 8vw;
+		height: 10vh;
+	}
+}
