@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
@@ -27,6 +27,22 @@ const addFaq = async (question, answer) => {
 	}
 };
 
+const getFaq = async () => {
+	try {
+		const querySnapshot = await getDocs(faqCollection);
+
+		const data = querySnapshot.docs.map((doc) => ({
+			id: doc.id,
+			question: doc.data().question,
+			answer: doc.data().answer,
+		}));
+
+		return data;
+	} catch (error) {
+		alert(error.message);
+	}
+};
+
 const removeFaq = async (id) => {
 	try {
 		await deleteDoc(doc(db, "faq", id));
@@ -35,4 +51,4 @@ const removeFaq = async (id) => {
 	}
 };
 
-export { app, db, auth, faqCollection, addFaq, removeFaq };
+export { app, db, auth, faqCollection, addFaq, getFaq, removeFaq };
