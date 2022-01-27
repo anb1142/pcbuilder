@@ -1,6 +1,5 @@
 @import "@styles/_vars.scss";
 
-
 .neon {
 	color: $neon;
 	background: $neonbg;
@@ -8,58 +7,4 @@
 	border: $neon 0.5vh solid;
 	text-shadow: 0 0 0.3vh #ffffff69, 0 0 1vh currentColor;
 	box-shadow: inset 0 0 1.8vh 0 currentColor, 0 0 1.8vh 0 currentColor;
-}
-
-.neon2 {
-	transition: 150ms all;
-	color: $neon;
-	background: $neonbg;
-	font-weight: bold;
-	border: $neon 0.5vh solid;
-	text-shadow: 0 0 0.3vh #ffffff69, 0 0 1vh currentColor;
-	box-shadow: inset 0 0 1.8vh 0 currentColor, 0 0 1.8vh 0 currentColor;
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	&::before {
-		position: absolute;
-		content: "";
-		background: $neon;
-		top: 80%;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		transform: perspective(2vh) rotateX(10deg) scale(1, 0.35);
-		filter: blur(4vh);
-		opacity: 0.4;
-		transition: 150ms all;
-		pointer-events: none;
-		overflow: hidden;
-		z-index: 2;
-	}
-}
-.neonhover {
-	&::after {
-		position: absolute;
-		background: #000;
-		content: "";
-
-		inset: 0 0 0 0;
-		box-shadow: 0 0 8vh 0.5vh $neon;
-		transition: 150ms all;
-		opacity: 0;
-		background: $neon;
-		z-index: -1;
-	}
-	&:hover {
-		color: $neonbg;
-		text-shadow: none;
-		box-shadow: 0 0 1.8vh 0 $neon;
-		background: $neon;
-		cursor: pointer;
-		&::before,
-		&::after {
-			opacity: 1;
-		}
-	}
 }
