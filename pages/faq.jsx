@@ -1,10 +1,9 @@
-import styles from "@styles/Faq.module.scss";
 import InfoPage from "@layouts/InfoPage";
 import { useEffect, useState } from "react";
 import { getFaq, auth } from "@data/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Loading from "@components/Loading";
-import Admin from "@components/Admin";
+import FaqAdmin from "@/components/FaqAdmin";
 import FaqList from "@components/FaqList";
 
 export default function FAQ() {
@@ -28,10 +27,10 @@ export default function FAQ() {
 	useEffect(async () => saveFaq(), []);
 
 	return (
-		<InfoPage className={styles.faq} title="Questions and Answers">
+		<InfoPage title="Questions and Answers">
 			{faq == null && <Loading />}
 			{user && faq !== null && (
-				<Admin
+				<FaqAdmin
 					faqIsOpen={faqIsOpen}
 					setFaqOpen={setFaqOpen}
 					removeId={removeId}

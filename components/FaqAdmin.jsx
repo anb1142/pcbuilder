@@ -1,8 +1,9 @@
 import Modal from "@components/Modal";
 import AddFaq from "@components/AddFaq";
 import { removeFaq } from "@data/firebase";
+import styles from "@styles/FaqAdmin.module.scss";
 
-export default function Admin({
+export default function FaqAdmin({
 	faqIsOpen,
 	setFaqOpen,
 	removeId,
@@ -11,7 +12,7 @@ export default function Admin({
 }) {
 	return (
 		<>
-			<section>
+			<section className={styles.faqadmin}>
 				<button onClick={() => setFaqOpen(true)}>+</button>
 			</section>
 			<Modal

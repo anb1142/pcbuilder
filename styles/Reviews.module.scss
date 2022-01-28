@@ -1,10 +1,11 @@
+@import "@styles/_vars";
 .reviews {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	color: #fff;
 	font-family: "Oxygen";
-
+	margin-top: $marB;
 	> img {
 		width: 45vh;
 		padding: 2vh 0;
@@ -89,6 +90,7 @@
 
 @media screen and (max-width: 768px) {
 	.reviews {
+		margin-top: $marBm;
 		> img {
 			width: 90vw;
 			padding: 2vw 0;
