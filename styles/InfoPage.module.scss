@@ -19,6 +19,8 @@
 		color: #fff;
 		position: relative;
 		cursor: default;
+		margin-bottom: $marB;
+
 		&::after {
 			position: absolute;
 			content: "";
@@ -38,5 +40,6 @@
 @media screen and (max-width: 768px) {
 	.infopage {
 		padding-bottom: $navhm;
+		margin-bottom: $marBm;
 	}
 }

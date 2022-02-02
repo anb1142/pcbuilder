@@ -24,7 +24,7 @@ section {
 .center {
 	width: 100vw;
 	height: 20vh;
-	// margin-top: -$marB;
+	margin-top: -$marB;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -32,6 +32,6 @@ section {
 
 @media screen and (max-width: 768px) {
 	.center {
-		// margin-top: -$marBm;
+		margin-top: -$marBm;
 	}
 }
