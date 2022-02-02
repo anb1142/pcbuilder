@@ -27,7 +27,7 @@ export default function FAQ() {
 	useEffect(async () => saveFaq(), []);
 
 	return (
-		<InfoPage title="Questions and Answers">
+		<InfoPage h1style={user ? { marginBottom: 0 } : {}} title="Questions and Answers">
 			{faq == null && <Loading />}
 			{user && faq !== null && (
 				<FaqAdmin
