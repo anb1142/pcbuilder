@@ -39,8 +39,6 @@ export default function Nav() {
 
 	const [user] = useAuthState(auth);
 
-	console.log(user);
-
 	return (
 		<nav
 			className={`
