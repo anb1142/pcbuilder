@@ -1,7 +1,7 @@
-import { BsTrash } from "react-icons/bs";
+import { FaqSpace } from "@stores/FaqStore";
 import styles from "@styles/FaqList.module.scss";
 import { Dispatch, SetStateAction } from "react";
-import { FaqSpace } from "@stores/FaqStore";
+import { BsTrash } from "react-icons/bs";
 
 type Props = {
 	user: any;

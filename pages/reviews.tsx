@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "@styles/Reviews.module.scss";
-import InfoPage from "@layouts/InfoPage";
 import reviews from "@data/reviews";
+import InfoPage from "@layouts/InfoPage";
+import styles from "@styles/Reviews.module.scss";
 
 const Reviews = () => {
 	const Stars = () => (

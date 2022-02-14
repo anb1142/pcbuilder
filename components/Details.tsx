@@ -1,5 +1,5 @@
-import styles from "@styles/Details.module.scss";
 import Detail from "@components/Detail";
+import styles from "@styles/Details.module.scss";
 
 const Details = () => (
 	<section className={styles.details}>

@@ -1,5 +1,5 @@
+import { FirebaseContext } from "@contexts/FirebaseContextProvider";
 import { UserContext } from "@contexts/UserContextProvider";
-import { auth } from "@data/firebase";
 import styles from "@styles/Nav.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ export default function Nav() {
 	const [hide, hideNav] = useState<boolean>(false);
 	const [scrolled, setScrolled] = useState<boolean>(false);
 	const user = useContext(UserContext);
+	const { auth } = useContext(FirebaseContext);
 
 	useEffect(() => {
 		let prevScrollpos = window.pageYOffset;

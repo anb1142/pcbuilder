@@ -1,9 +1,16 @@
 import Form from "@components/Form";
 import Modal from "@components/Modal";
-import { addFaq } from "@data/firebase";
+import { FirebaseContext } from "@contexts/FirebaseContextProvider";
 import { FaqSpace } from "@stores/FaqStore";
-
-import { Dispatch, FormEventHandler, MouseEventHandler, SetStateAction, useState } from "react";
+import { addDoc } from "firebase/firestore";
+import {
+	Dispatch,
+	FormEventHandler,
+	MouseEventHandler,
+	SetStateAction,
+	useContext,
+	useState,
+} from "react";
 
 type Props = { faqIsOpen: boolean; setFaqOpen: Dispatch<SetStateAction<boolean>> };
 
@@ -14,6 +21,7 @@ const initState: FaqSpace.Add = {
 
 const AddFaq = (props: Props) => {
 	const [form, setForm] = useState<FaqSpace.Add>(initState);
+	const { faqCollection } = useContext(FirebaseContext);
 
 	const handleChange: FormEventHandler<HTMLFormElement> = (e) => {
 		const { name, value } = e.target as HTMLInputElement;
@@ -22,7 +30,11 @@ const AddFaq = (props: Props) => {
 
 	const handleSubmit: MouseEventHandler = async (e) => {
 		e.preventDefault();
-		addFaq(form.q, form.a);
+		try {
+			await addDoc(faqCollection, { question: form.q, answer: form.a });
+		} catch (error) {
+			error instanceof Error && alert(error.message);
+		}
 		props.setFaqOpen(false);
 	};
 

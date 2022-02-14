@@ -1,10 +1,10 @@
 import Form from "@components/Form";
+import { FirebaseContext } from "@contexts/FirebaseContextProvider";
 import InfoPage from "@layouts/InfoPage";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@data/firebase";
-import { useRouter } from "next/router";
-import { FormEventHandler, MouseEventHandler, useState } from "react";
 import { AdminSpace } from "@stores/AdminStore";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/router";
+import { FormEventHandler, MouseEventHandler, useContext, useState } from "react";
 
 const initState: AdminSpace.Form = {
 	email: "",
@@ -14,6 +14,7 @@ const initState: AdminSpace.Form = {
 const Admin = () => {
 	const router = useRouter();
 	const [form, setForm] = useState<AdminSpace.Form>(initState);
+	const { auth } = useContext(FirebaseContext);
 
 	const handleChange: FormEventHandler<HTMLFormElement> = (e) => {
 		const { name, value } = e.target as HTMLInputElement;

@@ -1,5 +1,5 @@
-import styles from "@styles/ContactSection.module.scss";
 import ContactForm from "@components/ContactForm";
+import styles from "@styles/ContactSection.module.scss";
 
 const ContactSection = () => (
 	<section className={styles.contactsection}>

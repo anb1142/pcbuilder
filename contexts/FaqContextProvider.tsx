@@ -1,11 +1,12 @@
-import { faqCollection } from "@data/firebase";
 import { FaqSpace } from "@stores/FaqStore";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { FirebaseContext } from "./FirebaseContextProvider";
 
 export const FaqContext = createContext<FaqSpace.List[]>([]);
 
 const FaqContextProvider = (props: { children: any }) => {
+	const { faqCollection } = useContext(FirebaseContext);
 	const [faqs, setFaqs] = useState<FaqSpace.List[]>([]);
 	const [value] = useCollection(faqCollection);
 

@@ -1,14 +1,14 @@
 import FaqAdmin from "@components/FaqAdmin";
 import FaqList from "@components/FaqList";
 import Loading from "@components/Loading";
-import FaqContextProvider, { FaqContext } from "@contexts/FaqContextProvider";
-import { auth } from "@data/firebase";
+import { FaqContext } from "@contexts/FaqContextProvider";
+import { FirebaseContext } from "@contexts/FirebaseContextProvider";
 import InfoPage from "@layouts/InfoPage";
 import { useContext, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 const Faq = () => {
-	const [user] = useAuthState(auth);
+	const user = useContext(FirebaseContext);
+
 	const [removeId, setRemoveId] = useState<string>("");
 	const [confirmFaqIsOpen, setConfirmFaqOpen] = useState<boolean>(false);
 	const [faqIsOpen, setFaqOpen] = useState<boolean>(false);
