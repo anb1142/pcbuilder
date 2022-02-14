@@ -1,14 +1,15 @@
-import Link from "next/link";
-import styles from "@styles/Nav.module.scss";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { UserContext } from "@contexts/userContext";
 import { auth } from "@data/firebase";
+import styles from "@styles/Nav.module.scss";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 
 export default function Nav() {
 	const router = useRouter();
 	const [hide, hideNav] = useState<boolean>(false);
 	const [scrolled, setScrolled] = useState<boolean>(false);
+	const user = useContext(UserContext);
 
 	useEffect(() => {
 		let prevScrollpos = window.pageYOffset;
@@ -36,8 +37,6 @@ export default function Nav() {
 			{user && <a onClick={() => auth.signOut()}>Sign Out</a>}
 		</ul>
 	);
-
-	const [user] = useAuthState(auth);
 
 	return (
 		<nav
