@@ -19,11 +19,11 @@ const faqCollection = collection(db, "faq");
 
 const auth = getAuth(app);
 
-const addFaq = async (question, answer) => {
+const addFaq = async (question: string, answer: string) => {
 	try {
 		await addDoc(faqCollection, { question, answer });
 	} catch (error) {
-		alert(error.message);
+		error instanceof Error && alert(error.message);
 	}
 };
 
@@ -39,15 +39,15 @@ const getFaq = async () => {
 
 		return data;
 	} catch (error) {
-		alert(error.message);
+		error instanceof Error && alert(error.message);
 	}
 };
 
-const removeFaq = async (id) => {
+const removeFaq = async (id: string) => {
 	try {
 		await deleteDoc(doc(db, "faq", id));
 	} catch (error) {
-		alert(error.message);
+		error instanceof Error && alert(error.message);
 	}
 };
 

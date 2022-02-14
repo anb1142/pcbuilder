@@ -7,8 +7,8 @@ import { auth } from "@data/firebase";
 
 export default function Nav() {
 	const router = useRouter();
-	const [hide, hideNav] = useState(false);
-	const [scrolled, setScrolled] = useState(false);
+	const [hide, hideNav] = useState<boolean>(false);
+	const [scrolled, setScrolled] = useState<boolean>(false);
 
 	useEffect(() => {
 		let prevScrollpos = window.pageYOffset;
@@ -26,14 +26,21 @@ export default function Nav() {
 		{ href: "/contact", label: "Contact" },
 	];
 
-	const Links = () =>
-		pages.map(({ href, label }) => (
-			<Link href={href} key={label}>
-				<a className={router.pathname == href ? styles.active : ""}>{label}</a>
-			</Link>
-		));
+	const NavLinks = () => (
+		<ul>
+			{pages.map(({ href, label }) => (
+				<Link href={href} key={label}>
+					<a className={router.pathname == href ? styles.active : ""}>{label}</a>
+				</Link>
+			))}
+			{user && <a onClick={() => auth.signOut()}>Sign Out</a>}
+		</ul>
+	);
 
 	const [user] = useAuthState(auth);
+
+	console.log(user);
+
 	return (
 		<nav
 			className={`
@@ -42,10 +49,7 @@ export default function Nav() {
 			`}
 		>
 			<Link href={`/`}>home</Link>
-			<ul>
-				<Links />
-				{user && <a onClick={() => auth.signOut()}>Sign Out</a>}
-			</ul>
+			<NavLinks />
 		</nav>
 	);
 }

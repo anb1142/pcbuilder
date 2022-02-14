@@ -2,10 +2,46 @@
 
 .layout {
 	padding-top: $navh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+
+	> h1 {
+		width: 100vh;
+		max-width: 90vw;
+		height: $h1H;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		text-align: center;
+		font-size: 4vh;
+		font-family: "Orbitron";
+		color: #fff;
+		position: relative;
+		cursor: default;
+		margin-bottom: $marB;
+
+		&::after {
+			position: absolute;
+			content: "";
+			top: 98%;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: $border-color;
+			border-radius: 50%;
+		}
+	}
+	> section {
+		min-height: $pageH;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.layout {
 		padding-top: 0;
+		padding-bottom: $navhm;
+		margin-bottom: $marBm;
 	}
 }

@@ -6,8 +6,8 @@ const Details = () => (
 		<Detail title="Why a Custom PC" img="/home/1.jpg">
 			Getting a custom PC is a better alternative than buying a prebuilt one. You can choose exactly
 			what parts you want, customize the looks of your system, and avoid the hundreds & hundreds of
-			dollars in markups that prebuilt companies and other selling PC's charge. Lucky for you we are
-			here to guide you through every step of the way!
+			dollars in markups that prebuilt companies and other selling PC{`'`}s charge. Lucky for you we
+			are here to guide you through every step of the way!
 		</Detail>
 		<Detail title="Our Services" img="/home/2.jpg">
 			<li>Build your PC</li>
