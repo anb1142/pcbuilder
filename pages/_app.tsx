@@ -1,12 +1,15 @@
-import UserContextProvider from "@contexts/userContext";
+import UserContextProvider from "@contexts/UserContextProvider";
 import type { AppProps } from "next/app";
 import "@styles/globals.scss";
+import FaqContextProvider from "@contexts/FaqContextProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<UserContextProvider>
-			<Component {...pageProps} />
-		</UserContextProvider>
+		<FaqContextProvider>
+			<UserContextProvider>
+				<Component {...pageProps} />
+			</UserContextProvider>
+		</FaqContextProvider>
 	);
 }
 

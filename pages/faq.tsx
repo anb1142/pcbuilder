@@ -1,33 +1,18 @@
-import InfoPage from "@layouts/InfoPage";
-import { useEffect, useState } from "react";
-import { getFaq, auth } from "@data/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import Loading from "@components/Loading";
 import FaqAdmin from "@components/FaqAdmin";
 import FaqList from "@components/FaqList";
-import { FaqSpace } from "@stores/FaqStore";
+import Loading from "@components/Loading";
+import FaqContextProvider, { FaqContext } from "@contexts/FaqContextProvider";
+import { auth } from "@data/firebase";
+import InfoPage from "@layouts/InfoPage";
+import { useContext, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Faq = () => {
 	const [user] = useAuthState(auth);
 	const [removeId, setRemoveId] = useState<string>("");
 	const [confirmFaqIsOpen, setConfirmFaqOpen] = useState<boolean>(false);
 	const [faqIsOpen, setFaqOpen] = useState<boolean>(false);
-	const [faqs, setFaqs] = useState<FaqSpace.List[]>([]);
-
-	const saveFaq = async () => {
-		const session = sessionStorage.getItem("faq");
-		if (session == null) {
-			const faq = await getFaq();
-			if (faq) setFaqs(faq);
-			sessionStorage.setItem("faq", JSON.stringify(faq));
-		} else {
-			setFaqs(JSON.parse(session));
-		}
-	};
-
-	useEffect(() => {
-		saveFaq();
-	}, []);
+	const faqs = useContext(FaqContext);
 	return (
 		<InfoPage h1style={user ? { marginBottom: 0 } : {}} title="Questions and Answers">
 			{faqs.length === 0 ? (

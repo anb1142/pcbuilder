@@ -1,4 +1,4 @@
-import { UserContext } from "@contexts/userContext";
+import { UserContext } from "@contexts/UserContextProvider";
 import { auth } from "@data/firebase";
 import styles from "@styles/Nav.module.scss";
 import Link from "next/link";

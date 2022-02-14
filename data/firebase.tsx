@@ -27,22 +27,6 @@ const addFaq = async (question: string, answer: string) => {
 	}
 };
 
-const getFaq = async () => {
-	try {
-		const querySnapshot = await getDocs(faqCollection);
-
-		const data = querySnapshot.docs.map((doc) => ({
-			id: doc.id,
-			question: doc.data().question,
-			answer: doc.data().answer,
-		}));
-
-		return data;
-	} catch (error) {
-		error instanceof Error && alert(error.message);
-	}
-};
-
 const removeFaq = async (id: string) => {
 	try {
 		await deleteDoc(doc(db, "faq", id));
@@ -51,4 +35,4 @@ const removeFaq = async (id: string) => {
 	}
 };
 
-export { app, db, auth, faqCollection, addFaq, getFaq, removeFaq };
+export { app, db, auth, faqCollection, addFaq, removeFaq };
